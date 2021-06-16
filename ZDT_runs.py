@@ -32,7 +32,7 @@
 import numpy as np
 import datetime
 from ZDT import *
-from MC_DEEPSO import *
+from MESH import *
 import pygmo as pg
 import pickle
 from tqdm import tqdm
@@ -73,9 +73,9 @@ def main():
     combined = None
     for i in tqdm(range(num_runs)):
 
-        params = MC_DEEPSO_Params(objectives_dim,otimizations_type,max_iterations,max_fitness_eval,position_dim,position_max_value,position_min_value,population_size,memory_size,memory_update_type,global_best_attribution_type,DE_mutation_type,Xr_pool_type,communication_probability,mutation_rate,personal_guide_array_size)
+        params = MESH_Params(objectives_dim,otimizations_type,max_iterations,max_fitness_eval,position_dim,position_max_value,position_min_value,population_size,memory_size,memory_update_type,global_best_attribution_type,DE_mutation_type,Xr_pool_type,communication_probability,mutation_rate,personal_guide_array_size)
 
-        MCDEEPSO = MC_DEEPSO(params,zdt_func)
+        MCDEEPSO = MESH(params,zdt_func)
         MCDEEPSO.log_memory = f"result/{config}_{i}-ZDT{zdt}-"
         MCDEEPSO.run()
         

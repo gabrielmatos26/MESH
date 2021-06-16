@@ -37,7 +37,7 @@ from Particle import *
 from tqdm import tqdm
 
 
-class MC_DEEPSO_Params:
+class MESH_Params:
     def __init__(self,
                  objectives_dim,
                  otimizations_type,
@@ -92,7 +92,7 @@ class MC_DEEPSO_Params:
         self.secondary_params = secondary_params
         self.initial_state = initial_state
 
-class MC_DEEPSO:
+class MESH:
     def __init__(self,params,fitness_function):
         self.params = params
         self.stopping_criteria_reached = False
